@@ -1,0 +1,136 @@
+/* Fondo y Estilo General */
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('imagenes/fondoCasino.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; 
+    padding: 20px 0;
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+/* Contenedores de Cartas */
+#cartasJugador, #cartasMaquina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 180px; 
+    position: relative;
+}
+
+/* El contenedor de botones */
+.controles {
+    z-index: 100; 
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+/* Estilo para las imágenes */
+img {
+    width: 110px; 
+    height: auto;
+    border-radius: 8px;
+    margin-left: -50px; 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease;
+    animation: aparecer 0.5s ease-out;
+    position: relative; 
+    background-color: #eee;
+}
+
+/* Evitamos que la primera carta se mueva a la izquierda */
+img:first-child {
+    margin-left: 0;
+}
+
+
+img:hover {
+    transform: translateY(-20px) rotate(5deg);
+    margin: 0 10px;
+    z-index: 10;
+}
+
+/* Animación al sacar carta */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-100px) rotate(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Botones Estilo Casino */
+button {
+    background: linear-gradient(135deg, #d4af37 0%, #aa891a 100%); /* Color oro */
+    border: 2px solid #5c4b12;
+    border-radius: 50px;
+    padding: 12px 30px;
+    color: #1a1a1a;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #5c4b12;
+    margin: 10px;
+    transition: all 0.1s active;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #f1c40f 0%, #d4af37 100%);
+    transform: scale(1.05);
+}
+
+button:active {
+    box-shadow: 0 0 0;
+    transform: translateY(4px);
+}
+
+button:disabled {
+    background: #555;
+    border-color: #333;
+    color: #888;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Texto del título y Puntuación */
+#letras {
+    color: #f1c40f !important; 
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    background: rgba(0, 0, 0, 0.8); 
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    
+   
+    min-width: 300px;
+    margin-top: 20px;
+    display: inline-block;
+    z-index: 1000;
+}
+#sacar {
+    background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+    color: white;
+    border-color: #145a32;
+    box-shadow: 0 4px 0 #145a32;
+}
+
+#sacar:hover {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
